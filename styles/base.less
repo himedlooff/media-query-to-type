@@ -1,0 +1,48 @@
+body {
+    padding: 2em;
+    font-family: Helvetica, Arial, Sans-Serif;
+    line-height: 1.5;
+    background: #fff;
+    color: #000;
+}
+
+h1,
+h2,
+p {
+    max-width: 480px;
+    margin: 1em auto;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+    border-bottom: 1px dotted #000;
+    color: #000;
+    text-decoration: none;
+}
+
+// Assume mobile-first
+.test-large-screens {
+    display: none;
+}
+
+@media @respond-to-large-screens {
+
+    // @respond-to-large-screens is set to "only screen and (min-width: 768px)".
+    // IE8 and below do not support media queries and will not see the
+    // large-screen styles. To get around this we can serve it an IE-specific
+    // stylesheet using LESS string interpolation to convert the media query
+    // to a media type. IE8 and below will see @respond-to-large-screens as
+    // "screen" which is uspported down to IE6.
+    .test-large-screens {
+        display: block;
+    }
+    .test-small-screens {
+        display: none;
+    }
+
+}
+
