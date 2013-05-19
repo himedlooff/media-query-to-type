@@ -1,0 +1,38 @@
+body {
+  padding: 2em;
+  font-family: Helvetica, Arial, Sans-Serif;
+  line-height: 1.5;
+  color: #000;
+  background: #fff;
+}
+
+h1,
+h2,
+p {
+  max-width: 480px;
+  margin: 1em auto;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px dotted #000;
+}
+
+.test-large-screens {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .test-large-screens {
+    display: block;
+  }
+  .test-small-screens {
+    display: none;
+  }
+}
