@@ -7,27 +7,43 @@ A method for creating an [IE specific stylesheet](http://css-tricks.com/how-to-c
 
 This is especially useful if you write mobile-first styles and inline (scatter) your media queries instead of writing them in one big block in a separate file.
 
-## Getting Started
-
-Set up LESS, I'm using [Recess, a grunt plugin](https://github.com/sindresorhus/grunt-recess)
-
 ## Documentation
 
 ```
-//styles.less
-@import "vars.less"; // This contains: `@respond-to-large-screens: ~"only screen and (min-width: 768px)";`
-@import "base.less"; // Write styles as usual but when writing large-screen media queries write them like this `@media @respond-to-large-screens`
+// vars.less
+// Examples of using LESS's string interpolation to turn your
+// media queries into variables.
+@respond-to-medium-screens: "only screen and (min-width: 600px)";
+@respond-to-medium-screens-max: "only screen and (max-width: 599px)";
+@respond-to-large-screens: "only screen and (min-width: 768px)";
+@respond-to-large-screens-max: "only screen and (max-width: 767px)";
 
-//styles-ie.less
-@import "vars-ie-overrides.less"; // This contains: `@respond-to-large-screens: ~"screen";`
+// vars-ie-overrides.less
+// Used only to override any media queries that affect the "desktop" layout
+@respond-to-medium-screens: "screen";
+@respond-to-large-screens: "screen";
+
+// base.less
+// Write styles as usual but when writing your media queries
+// use the variables you set up: `@media @respond-to-large-screens`
+@media @respond-to-medium-screens { ... }
+@media @respond-to-large-screens { ... }
+
+// styles.less
+// This stylesheet will pull everything together and your
+// media queries will be compiled as normal: `@media only screen and (min-width: 768px)`
+@import "vars.less";
+@import "base.less";
+
+// styles-ie.less
+// This stylesheet is for IE8 and below and also pulls everything together
+// except that it uses vars-ie-overrides.less to override any media queries that
+// affect the "desktop" layout. Your media queries will now look like this:
+// `@media screen`
+@import "vars.less";
+@import "vars-ie-overrides.less";
 @import "base.less"; // This is the same file as above
 ```
-
-When compiled the two files will treat `@media @respond-to-large-screens` differently.
-
-**styles.less** will output `@media only screen and (min-width: 768px)`
-
-**styles-ie.less** will output `@media screen`
 
 All that's left is to serve **styles-ie.css** to IE8 and below like so.
 
