@@ -1,7 +1,7 @@
 Media Queries to Media Types with LESS
 ======================================
 
-Turn this... `@media only screen and (min-width:768px) { ... }` into this... `@media screen { ... }`
+Turn this... `@media all and (min-width:768px) { ... }` into this... `@media all { ... }`
 
 A method for creating an [IE specific stylesheet](http://css-tricks.com/how-to-create-an-ie-only-stylesheet/) that allows the content of media queries to become accessible to Internet Explorer 8 and below. This process uses [LESS string interpolation](http://lesscss.org/) to convert media queries into [media types](http://www.w3.org/TR/CSS2/media.html) which are [supported back to IE6](http://msdn.microsoft.com/en-us/library/hh781508.aspx#at-rules).
 
@@ -13,15 +13,15 @@ This is especially useful if you write mobile-first styles and inline (scatter) 
 // vars.less
 // Examples of using LESS's string interpolation to turn your
 // media queries into variables.
-@respond-to-medium-screens: "only screen and (min-width: 600px)";
-@respond-to-medium-screens-max: "only screen and (max-width: 599px)";
-@respond-to-large-screens: "only screen and (min-width: 768px)";
-@respond-to-large-screens-max: "only screen and (max-width: 767px)";
+@respond-to-medium-screens: "all and (min-width: 600px)";
+@respond-to-medium-screens-max: "all and (max-width: 599px)";
+@respond-to-large-screens: "all and (min-width: 768px)";
+@respond-to-large-screens-max: "all and (max-width: 767px)";
 
 // vars-ie-overrides.less
 // Used only to override any media queries that affect the "desktop" layout
-@respond-to-medium-screens: "screen";
-@respond-to-large-screens: "screen";
+@respond-to-medium-screens: "all";
+@respond-to-large-screens: "all";
 
 // base.less
 // Write styles as usual but when writing your media queries
@@ -31,15 +31,15 @@ This is especially useful if you write mobile-first styles and inline (scatter) 
 
 // styles.less
 // This stylesheet will pull everything together and your
-// media queries will be compiled as normal: `@media only screen and (min-width: 768px)`
+// media queries will be compiled as normal: `@media all and (min-width: 768px)`
 @import "vars.less";
 @import "base.less";
 
 // styles-ie.less
 // This stylesheet is for IE8 and below and also pulls everything together
 // except that it uses vars-ie-overrides.less to override any media queries that
-// affect the "desktop" layout. Your media queries will now look like this:
-// `@media screen`
+// affect the "desktop" layout. Your media queries will now be converted to media
+// types and will look like this: `@media all`
 @import "vars.less";
 @import "vars-ie-overrides.less";
 @import "base.less"; // This is the same file as above
