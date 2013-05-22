@@ -28,7 +28,7 @@ a:focus {
   display: none;
 }
 
-@media screen {
+@media all {
   .test-large-screens {
     display: block;
   }
