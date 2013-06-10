@@ -56,6 +56,8 @@ All that's left is to serve **styles-ie.css** to IE8 and below like so.
 
 Discussion is welcome using github issues
 
+- [Testing different media types](https://github.com/himedlooff/media-query-to-type/issues/1)
+
 ## Spreading the word
 
 Curating a list of sites I'm using to spread the idea and collect feedback.
