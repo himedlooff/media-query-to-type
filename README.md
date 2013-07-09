@@ -7,6 +7,12 @@ A method for creating an [IE specific stylesheet](http://css-tricks.com/how-to-c
 
 This is especially useful if you write mobile-first styles and inline (scatter) your media queries instead of writing them in one big block in a separate file.
 
+---
+
+**OR** if you're using grunt.js then [here is a simple way to strip mobile-first media queries](https://github.com/jtangelder/grunt-stripmq).
+
+---
+
 ## Documentation
 
 ```
