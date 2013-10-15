@@ -13,7 +13,9 @@ This is especially useful if you write mobile-first styles and inline (scatter) 
 
 ---
 
-## Step 1:
+## Documentation
+
+### Step 1:
 
 Setting up the files
 
@@ -52,11 +54,12 @@ Setting up the files
 @import "vars-ie-overrides.less";
 @import "base.less"; // This is the same file as above
 ```
-## Step 2:
+
+### Step 2:
 
 Compile both `styles.less` and `styles-ie.less`.
 
-## Step 3:
+### Step 3:
 
 All what's left is to serve **styles-ie.css** to IE8 and below like so.
 
