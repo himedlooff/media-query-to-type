@@ -80,5 +80,4 @@ Curating a list of sites I'm using to spread the idea and collect feedback.
 
 - [less.js pull #643](https://github.com/cloudhead/less.js/pull/643)
 - [less.js issue #965](https://github.com/cloudhead/less.js/issues/965)
-- [nicolasgallagher.com - “Mobile first” CSS and getting Sass to help with legacy IE](http://nicolasgallagher.com/mobile-first-css-sass-and-ie/#comment-94783) (awaiting comment moderation)
 - [coding.smashingmagazine.com - Techniques For Gracefully Degrading Media Queries](http://coding.smashingmagazine.com/2011/08/10/techniques-for-gracefully-degrading-media-queries/comment-page-1/#comment-944717)
